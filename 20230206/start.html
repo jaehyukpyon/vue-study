@@ -1,0 +1,32 @@
+<html>
+    <head></head>
+    <body>
+        
+        <input type="text">        
+        <button>확인</button>
+        <p>안녕하세요.</p>
+
+        <script>
+            // console.log(window.document.children[0].children[1].textContent);
+            // window.document.children[0].children[1].textContent = 'Hello!';
+            const body = document.querySelector('body');
+            let input = document.querySelector('input');
+            let button = document.querySelector('button');
+            let sentence = document.querySelector('p');
+            let newsentence = document.createElement('div');
+
+            console.dir(newsentence);
+            body.insertBefore(newsentence, input);
+
+            sentence.textContent = '변재혁입니다.';
+            input.style.border = '2px solid red';
+
+            button.addEventListener('click', 버튼할일);
+
+            function 버튼할일 () {
+                window.alert('할일했다.');
+                sentence.innerHTML = input.value;
+            }
+        </script>
+    </body>
+</html>
