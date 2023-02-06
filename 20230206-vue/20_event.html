@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="decrease($event, myNum)">감소</button>
+        <button @:click="increase(myNum)">증가</button> <!--파라미터가 없어야 첫 번째 파라미터 인자 값으로 event 객체가 들어간다-->
+        <p>결과 {{ number }}</p>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data () {
+                return {
+                    number: 0,
+                    myNum: 10,
+                }
+            },
+            methods: {
+                increase (num) {
+                    this.number += num;
+                },
+                decrease (ev, num) {
+                    this.number -= num;
+                    console.log(ev);
+                }
+            },
+            computed: {
+
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>

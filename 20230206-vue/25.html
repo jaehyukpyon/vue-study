@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>뷰 이벤트</h1>
+        <h2>이벤트로 할일</h2>
+        <button v-on:click="increase(4)">더하기</button>
+        <button v-on:click="decrease(4)">빼기</button>
+        <p>결과: {{ counter }}</p>
+        <input type="text" v-model="myName" />
+        <p>{{ showName() }}</p> <!--input에 타이핑을 칠 때마다 showName 함수가 실행된다. 심지어 위에 버튼을 눌러드 showName이 실행된다.-->
+        <p>test: {{ test }}</p> <!--더하기 빼기 버튼을 누르면 test 함수가 실행된다ㅏ.-->
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    counter: 10,
+                    myName: '',
+                };
+            },
+            methods: {
+                showName() {
+                    console.log('실행됐음!');
+                    if (this.myName === '') return '';
+                    return '정' + this.myName;
+                },
+                setName(event) {
+                    this.myName = event.target.value;
+                },
+                increase(num) {
+                    this.counter += num;
+                },
+                decrease(num) {
+                    this.counter -= num;
+                },
+            },
+            computed: {
+                test () {
+                    return this.counter + 10;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

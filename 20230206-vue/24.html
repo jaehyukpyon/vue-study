@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* div {
+            border: 2px solid red;
+        }
+        div > p {
+            border: 2px solid blue;
+        } */
+    </style>
+
+    <script src="https://unpkg.com/vue@next"></script>
+<body>
+    <div id="app">
+        <button v-on:click="decrease($event, myNum)">감소</button>
+        <button v-on:click.once="(event) => { increase(10, event); }">증가</button> <!--.once 딱 한 번만 증가되고 더 이상 증가 안 됨!-->
+        <div v-on:click="increase(20)">
+            <p v-on:click.stop="some">결과: {{ number }}</p> <!--.stop >> event bubbling 안 되게-->
+        </div>
+
+        <br><br><br><br>
+        <input type="text" v-on:keyup.enter="setName($event)"> <!--.enter / .space...-->
+        <!--v-on:keyup.ctrl.enter=''-->
+        <p>{{ myName }}</p>
+    </div>
+
+
+    <script>
+        Vue.createApp({
+            data () {
+                return {
+                    number: 0,
+                    myNum: 10,
+                    myName: '',
+                }
+            },
+            methods: {
+                setName (event) {
+                    this.myName = event.target.value;
+                },
+                decrease (ev, num) {
+                    this.number -= num;
+                },
+                increase (num, ev) {
+                    this.number += num;
+                },
+                some () {
+                    console.log('some');
+                },
+            },
+            computed: {
+
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>
