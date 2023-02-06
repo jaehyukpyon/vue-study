@@ -13,6 +13,7 @@
     <div id="app">
         <input type="text" v-model="age">
         <h1>저는 {{ age }}살입니다.</h1>
+        <p>{{ aboutMe }}</p>
         <button v-on:click="addAge">나이증가</button>
     </div>
 
@@ -21,6 +22,11 @@
             data: function () {
                 return {
                     age: 26
+                }
+            },
+            computed: { // 처리해서 데이터를 return 할 때 사용
+                aboutMe: function () {
+                    return `저의 나이는 ${this.age}입니다.`;
                 }
             },
             methods: {
