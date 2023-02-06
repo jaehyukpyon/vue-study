@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="age">
+        <h1>저는 {{ age < 40 ? '청년' : '중년' }}살입니다.</h1>
+        <p v-bind:title="text">{{ aboutMe }}</p>
+        <img v-bind:src="src" alt="">
+        <button v-on:click="addAge">나이증가</button>
+    </div>
+
+    <script>
+        const instance = Vue.createApp({
+            data: function () {
+                return {
+                    age: 26,
+                    text: '오늘은 흐린 날씨다',
+                    src: '../img/a.png',
+                }
+            },
+            computed: { // 처리해서 데이터를 return 할 때 사용
+                aboutMe: function () {
+                    return `저의 나이는 ${this.age}입니다.`;
+                }
+            },
+            methods: {
+                addAge: function () {
+                    this.age++;
+                }
+            },
+            beforeCreated () {
+
+            },
+            mounted () {
+                console.log('마운트 된 후!');
+            },
+        });
+        instance.mount('#app');
+        console.log(instance);
+    </script>
+</body>
+
+</html>
