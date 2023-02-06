@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name"> <!--input의 value 즉 name이 변경되면, 아래 h1태그의 name또한 변경된다.-->
+        <!-- <input type="text" v-bind:value="name"> v-bind 즉 여기에서 값을 입력해도 아래의 h1 태그의 name에 변경되지 않음 -->
+
+        <input type="text" v-bind:value="name" v-on:input="setName">
+        <h1>{{ name }}의 소개?</h1>
+
+    </div>
+
+    <script>
+        Vue.createApp({
+            data () {
+                return {
+                    name: '정을수'
+                }
+            },
+            methods: {
+                setName (event) {
+                    console.log(event);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

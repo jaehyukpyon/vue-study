@@ -13,7 +13,7 @@
     <div id="app">
         <input type="text" v-model="age">
         <h1>저는 {{ age < 40 ? '청년' : '중년' }}살입니다.</h1>
-        <p v-bind:title="text">{{ aboutMe }}</p>
+        <p v-bind:[att]="text">{{ aboutMe }}</p>
         <img v-bind:src="src" alt="">
         <a href="" v-on:click.prevent="addAge">나이증가</a> <!--.prevent >> 기본 동작을 꺼라-->
     </div>
@@ -23,6 +23,7 @@
             data: function () {
                 return {
                     age: 26,
+                    att: 'title', // p 태그의 []를 보자!
                     text: '오늘은 흐린 날씨다',
                     src: '../img/a.png',
                 }

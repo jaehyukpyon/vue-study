@@ -12,9 +12,14 @@
 <body>
     <div id="app">
         <input type="text" v-model="age">
-        <h1>저는 {{ age < 40 ? '청년' : '중년' }}살입니다.</h1>
-        <p v-bind:title="text">{{ aboutMe }}</p>
-        <img v-bind:src="src" alt="">
+        <h1 v-once>저는 {{ age }}살입니다.</h1> <!--데이터 잠그기-->
+        <h1>저는 {{ age }}살입니다.</h1>
+        <p 
+            v-bind="속성객체"
+        >{{ aboutMe }}</p>
+
+        <div v-html="content"></div>
+        <button v-bind:disabled="여부">확인버튼</button>
         <a href="" v-on:click.prevent="addAge">나이증가</a> <!--.prevent >> 기본 동작을 꺼라-->
     </div>
 
@@ -22,9 +27,18 @@
         const instance = Vue.createApp({
             data: function () {
                 return {
+                    속성객체: {
+                        title: '안녕',
+                        id: 'eulsoo',
+                        class: 'eulsoo',
+                        style: 'color: red;'
+                    },
+                    여부: false,
                     age: 26,
+                    att: 'title', // p 태그의 []를 보자!
                     text: '오늘은 흐린 날씨다',
                     src: '../img/a.png',
+                    content: '<strong>하하</strong>',
                 }
             },
             computed: { // 처리해서 데이터를 return 할 때 사용
