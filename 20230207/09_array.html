@@ -30,9 +30,9 @@
 
 <body>
     <div id="app">
-        <p class="text" :class="text1Css" @click="clickedText('red')">first</p>
-        <p class="text" :class="text2Css" @click="clickedText('blue')">second</p>
-        <p class="text" :class="text3Css" @click="clickedText('green')">third</p>
+        <p :class="['text', {red: text1}]" @click="clickedText('red')">first</p>
+        <p :class="['text', {blue: text2}]" @click="clickedText('blue')">second</p>
+        <p :class="['text', {green: text3}]" @click="clickedText('green')">third</p>
     </div>
 
     <script>
