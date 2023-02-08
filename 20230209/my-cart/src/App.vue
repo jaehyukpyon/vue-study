@@ -21,28 +21,29 @@
 </template>
 
 <script>
+import ProductList from "./components/ProductList.vue";
 
 export default {
   components: {
-    productList,
+    ProductList,
   },
   data() {
     return {
       chips: [
         {
-          img: `images/mango.jpg`,
+          img: `mango.jpg`,
           title: `자연그대로 망고칩`,
           desc: `단맛이 그대로 살아있는 망고칩입니다.`,
           price: `2500`,
         },
         {
-          img: `images/apple.jpg`,
+          img: `apple.jpg`,
           title: `천연 오가닉 사과칩`,
           desc: `깨끗한 재료를 엄선하여 자연을 그대로 담았습니다.`,
           price: `2000`,
         },
         {
-          img: `images/jujube.jpg`,
+          img: `jujube.jpg`,
           title: `아이깨끗 대추칩`,
           desc: `새콤함이 살아있는 반건조 대추그대로.`,
           price: `3000`,
