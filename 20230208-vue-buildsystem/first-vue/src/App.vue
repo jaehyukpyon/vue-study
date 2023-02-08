@@ -1,4 +1,5 @@
 <template>
+  <h1>Jaehyuk Pyon</h1>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
@@ -10,7 +11,18 @@ export default {
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+  data () {
+    return {
+
+    }
+  },
+  computed: {
+
+  },
+  methods: {
+
+  },
 }
 </script>
 
