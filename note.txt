@@ -7,3 +7,5 @@ public >> 최종본 만들 때 사용...
 핵심? html file, image files 이 client한테 가면 된다. 
 npm run build 명령을 내려서 빌드한 후, 몇 개의 js 파일로 만들고 html에 첨부하고 그렇게 사용자 컴퓨터에 보냄
 
+App.vue -> 부모
+ProductList.vue 파일로 만든 것 -> 자식
