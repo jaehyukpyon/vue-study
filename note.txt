@@ -1,1 +1,3 @@
 $refs, $emit과 같이 $를 사용 시 this.를 붙이자
+
+vue create first-vue
