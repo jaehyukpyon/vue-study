@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            padding: 30px;
+        }
+
+        .list {
+            margin: 20px 0;
+        }
+
+        .list>li {
+            width: 200px;
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+        .list>li>* {
+            display: block
+        }
+
+        .list>li>img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .list>li>strong {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 10px
+        }
+
+        .list>li>span {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Sales Product</h1>
+        <ul class="list">
+            <!-- <li>
+                <img src="images/mango.jpg" />
+                <strong>천연 오가닉 사과칩</strong>
+                <span>깨끗한 재료를 엄선하여 자연을 그대로 담았습니다.</span>
+                <b>2,000원</b>
+            </li> -->
+            <product-list></product-list><br>
+            <product-list></product-list><br>
+            <product-list></product-list>
+        </ul>
+    </div>
+
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+
+                }
+            },
+        });
+
+        // 전역 component 생성 > 컴포턴트명, 객체 ul 태그 안의 li 만 담당하는 instance를 만들고 싶다...
+        app.component('productList', { // 여기에서 component 작명할 때 productList와 같이 camelcase로 하고, 위의 html에서 실제로 태그를 작성할 때 dash로 해도 자동적으로 인식된다. / component마다 자기만의 각각의 vue instance 즉 data를 갖는다.
+            template: `
+            <li>
+                <img src="images/mango.jpg" />
+                <strong>천연 오가닉 사과칩</strong>
+                <span>깨끗한 재료를 엄선하여 자연을 그대로 담았습니다.</span>
+                <b>2,000원</b>
+            </li>
+            `, // product-list를 어디에서 사용할지 표현해야한다.
+        });
+
+        app.mount('#app'); // 맨 마지막에 실행해야 함.
+    </script>
+</body>
+
+</html>
