@@ -122,19 +122,24 @@
                         price: `3000`
                     },
                     ],
-                    totalPrice: 0,
                     inCart: [],
                 }
             },
             methods: {
                 addCart (index) { ;
                     this.inCart.push(this.chips[index]);
-                    this.totalPrice += Number(this.chips[index].price);
                 },
                 delCart (index) {
-                    this.totalPrice -= this.inCart[index].price;
                     this.inCart.splice(index, 1);                   
                 }
+            },
+            computed: {
+                totalPrice () {
+                    // 항상 return 필요
+                    let result = 0;
+                    this.inCart.forEach((item) => result += Number(item.price));
+                    return result;
+                },
             },
             components: {
                 productList,
