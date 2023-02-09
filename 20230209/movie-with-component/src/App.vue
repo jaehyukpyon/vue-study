@@ -8,7 +8,10 @@
       <li><a href="">다운로드순</a></li>
     </ul>
     
-    <movie-list :movies="movies" :movContext="movContext"></movie-list>
+    <movie-list 
+      :movies="movies" 
+      :movContext="movContext"
+    ></movie-list>
   </div>
 </template>
 
