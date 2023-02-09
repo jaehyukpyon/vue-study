@@ -38,7 +38,7 @@
             <em class="week data">239282 명</em>
           </span>
           <!-- 판매율순 -->
-          <span class="desc" v-else-if="movContext === '판매율순'">
+          <span class="desc" v-else-if="movContext === '다운로드순'">
             <i class="sale title">판매율</i>
             <em class="sale data">23 %</em>
           </span>
